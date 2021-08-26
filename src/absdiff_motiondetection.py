@@ -1,5 +1,4 @@
 from datetime import date
-# C:\Users\Owner\PycharmProjects\CvTestBed\src\absdiff_Md_function.py
 import cv2
 import requests
 
