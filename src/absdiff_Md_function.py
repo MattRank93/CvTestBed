@@ -1,5 +1,10 @@
+from datetime import date
 
 import cv2
+import requests
+
+# api-endpoint
+URL = "http://maps.googleapis.com/maps/api/geocode/json"
 
 cap = cv2.VideoCapture(0)
 
@@ -17,6 +22,8 @@ def AbsDiffMd(cap, sensitivity):
 
         if value > thresh:
          print("Motion detected")
+         # defining a params dict for the parameters to be sent to the API
+         PARAMS = {'date': date}
         else:
          print("No motion detected")
 
