@@ -1,6 +1,6 @@
 
 import cv2
-import absdiff_Md_function as md
+import absdiff_motiondetection as md
 cap = cv2.VideoCapture(0)
 
 md(cap, .02)

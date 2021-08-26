@@ -1,10 +1,10 @@
 from datetime import date
-
+# C:\Users\Owner\PycharmProjects\CvTestBed\src\absdiff_Md_function.py
 import cv2
 import requests
 
 # api-endpoint
-URL = "http://maps.googleapis.com/maps/api/geocode/json"
+URL = "http://127.0.0.1:5000/MotionDetected"
 
 cap = cv2.VideoCapture(0)
 
@@ -23,7 +23,11 @@ def AbsDiffMd(cap, sensitivity):
         if value > thresh:
          print("Motion detected")
          # defining a params dict for the parameters to be sent to the API
-         PARAMS = {'date': date}
+         PARAMS = {'date': date.today()}
+         # sending get request and saving the response as response object
+         r = requests.post(url=URL, params=PARAMS)
+         print(r.status_code)
+
         else:
          print("No motion detected")
 
@@ -53,7 +57,7 @@ def AbsDiffMd(cap, sensitivity):
             break
 
 
-AbsDiffMd(cap,0.04)
+AbsDiffMd(cap,0.50)
 
 cap.release()
 cv2.destroyAllWindows()
