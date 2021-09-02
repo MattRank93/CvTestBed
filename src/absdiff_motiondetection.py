@@ -9,7 +9,7 @@ import requests
 # api-endpoint
 URL = "http://127.0.0.1:5000/MotionDetected"
 
-cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture(0)
 
 def sendtoserver(frame):
     imencoded = cv2.imencode(".jpg", frame)[1]
@@ -28,11 +28,11 @@ def ADP(first, second, thresh):
     if value > thresh:
         print("Motion detected")
         # defining a params dict for the parameters to be sent to the API
-        now = datetime.datetime.now()
-        PARAMS = {'date': now.strftime("%Y-%m-%d %H:%M:%S")}
-        # sending get request and saving the response as response object
-        r = post(url=URL, params=PARAMS)
-        print(r.status_code)
+        # now = datetime.datetime.now()
+        # PARAMS = {'date': now.strftime("%Y-%m-%d %H:%M:%S")}
+        # # sending get request and saving the response as response object
+        # r = post(url=URL, params=PARAMS)
+        # print(r.status_code)
 
     else:
         print("No motion detected")
